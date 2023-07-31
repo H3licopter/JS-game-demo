@@ -60,16 +60,33 @@ if (age > 80 || age < 6) {
 // Arrays are a collection of values
 let nameArray = [ 'Alan', 'Paul', 'Nye', 'Ringo', 'George', 'John' ];
 let numArray = [ 0, 1, 2, 69 ];
-const mixedArray = [ 0, 'bob', true, ['2d array'] ];
+const mixedArray = [ 0, 'bob', true, ['2d array', 'things', 'stuff'] ];
+
+const gameBoard = [
+  ['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook'],
+  ['Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn'],
+  ['', '', '', '', '', '', '', ''],   
+  ['', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', ''],
+  ['', '', '', '', '', '', '', ''],
+  ['Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn'],
+  ['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook']
+]
+
+let name = nameArray[2]
 
 //LOOPS
 
 //While Loop
-let i = 0;
+let i = 7;
 while (i < 5) {
-  //Do stuff
   i++;
 }
+
+//Do while
+do {
+  i++;
+} while (i < 5);
 
 // Functions
 // Functions are a piece of code that can be called to perform a task
@@ -82,6 +99,10 @@ function findName(name, array) {
   }
   return 'Could not find ' + name + ' in array'
 }
+findName('Alan', nameArray)
+
+
+const cards = [6, 427, 8787, 3, 98, 456765445];
 
 // Objects
 // An Object is a collection of properties and methods
@@ -90,3 +111,43 @@ let character = {
   level: 3,
   age: 400
 }
+
+// Switch Statement
+let number = 3;
+switch(number) {
+  case 1:
+    break;
+  case 2:
+    console.log("Yay the number is two!")
+    break;
+  case 3:
+    break;
+  default:
+    break;
+} 
+
+// Classes
+// Classes are blueprints for objects
+
+class Character {
+  constructor(name, hp = 100, damage = 10, sheild = false, defence = 0, evasion = 0.5) {
+    this.name = name;
+    this.hp = hp;
+    this.damage = damage;
+    this.sheild = sheild;
+    this.defence = defence;
+    this.evasion = evasion;
+  }
+
+  attack(defender) {
+    if (checkIfHit(defender)) {
+      const damage = calculateDamage(this.damage, defender);
+      defender.hp -= damage;
+      statusMessage.innerHTML = returnStatusMessage();
+    } else {
+      statusMessage.innerHTML = 'MISSED! ' + returnStatusMessage();
+    }
+  }
+
+}
+

@@ -1,0 +1,31 @@
+.board {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin: 10%;
+  padding: 50px;
+  width: 800px;
+  height: 800px;
+  grid-template-columns: repeat(8, 100px);
+  grid-template-rows: repeat(8, 100px);
+  background-color: rgb(83, 52, 25);
+  border: 6px solid black;
+}
+.board > * {
+  border: 2px solid rgb(0, 0, 0);
+  width: 100px;
+  height: 100px;
+}
+.black {
+  background-color: rgb(69, 37, 8);
+}
+.white {
+  background-color: white;
+}
+.highlighted {
+  background-color: blue;
+}
+.piece {
+  width: 100px;
+  height: 100px;
+}

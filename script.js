@@ -65,7 +65,7 @@ const mixedArray = [ 0, 'bob', true, ['2d array', 'things', 'stuff'] ];
 const gameBoard = [
   ['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook'],
   ['Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn', 'Pawn'],
-  ['', '', '', '', '', '', '', ''],   
+  ['', '', '', '', '', '', '', ''],
   ['', '', '', '', '', '', '', ''],
   ['', '', '', '', '', '', '', ''],
   ['', '', '', '', '', '', '', ''],
@@ -73,13 +73,31 @@ const gameBoard = [
   ['Rook', 'Knight', 'Bishop', 'Queen', 'King', 'Bishop', 'Knight', 'Rook']
 ]
 
-let name = nameArray[2]
+// Changing (Mutating) a value in an array
+nameArray[2] = 'Bob';
+
+// Adding values to end of array
+nameArray[6] = 'Karen';
+
+let arrayLength = nameArray.length;
+nameArray[arrayLength] = 'Dave';
+
+nameArray.push('Fred', 'Jill');
+
+// Adding values to start of Array
+nameArray.unshift('Harriet');
+
+//Remove Value from the end of the Array
+nameArray.pop();
+
+//Remove value from start of array
+nameArray.shift();
 
 //LOOPS
 
 //While Loop
-let i = 7;
-while (i < 5) {
+let i = 0;
+while (i < nameArray.length) {
   i++;
 }
 
@@ -94,23 +112,16 @@ do {
 function findName(name, array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === name) {
-      return 'found ' + name + ' in array'
+      return true
     }
   }
-  return 'Could not find ' + name + ' in array'
+  return false
 }
-findName('Alan', nameArray)
 
 
 const cards = [6, 427, 8787, 3, 98, 456765445];
 
-// Objects
-// An Object is a collection of properties and methods
-let character = {
-  name: 'Alan',
-  level: 3,
-  age: 400
-}
+
 
 // Switch Statement
 let number = 3;
@@ -122,32 +133,55 @@ switch(number) {
     break;
   case 3:
     break;
-  default:
+  default: 0
     break;
 } 
+
+// Objects
+// An Object is a collection of properties and methods
+let alanCustomer = {
+  name: 'Alan',
+  age: 34,
+  purchased: [1231234, 12392947, 123442],
+}
 
 // Classes
 // Classes are blueprints for objects
 
-class Character {
-  constructor(name, hp = 100, damage = 10, sheild = false, defence = 0, evasion = 0.5) {
-    this.name = name;
-    this.hp = hp;
-    this.damage = damage;
-    this.sheild = sheild;
-    this.defence = defence;
-    this.evasion = evasion;
+class Customer {
+  constructor(name, age, purchases) {
+    this.name = name
+    this.age = age
+    this.purchases = purchases
   }
 
-  attack(defender) {
-    if (checkIfHit(defender)) {
-      const damage = calculateDamage(this.damage, defender);
-      defender.hp -= damage;
-      statusMessage.innerHTML = returnStatusMessage();
-    } else {
-      statusMessage.innerHTML = 'MISSED! ' + returnStatusMessage();
-    }
+  hasItem(item) {
+    return this.purchases.includes(item)
   }
+}
 
+let alan = new Customer('Alan', 34, [123, 234, 345]);
+
+// Anonymous Functions
+// Functions without a name
+
+() => console.log("Hello World!")
+
+//is the same as:
+function thing() {
+  console.log("Hello World!")
+}
+
+
+// Higher order functions
+// Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher order functions
+
+setTimeout(() => console.log("Hello World!"), 1000);
+
+// setInterval(thing, 1000);
+
+
+const coolFunction = (msg) => {
+  console.log(msg)
 }
 
